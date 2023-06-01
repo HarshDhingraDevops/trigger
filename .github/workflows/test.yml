@@ -1,24 +1,9 @@
-'on':
-  push:
-    branches:
-      - main
+
+on: repository_dispatch
 jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-    # - run: |
-    #     curl -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" \
-    #       -H "Accept: application/vnd.github.everest-preview+json" \
-    #       -H "Content-Type: application/json" \
-    #       https://api.github.com/repos/docker-sstc/docker-notify/actions/workflows/main.yml/dispatches \
-    #       --data '{"ref": "master"}'
-    - name: Workflow trigger Stage
-    - uses: actions/github-script@v5
-      with:
-        github-token: ${{ secrets.PAT_TOKEN }}
-        script: |
-          await github.rest.actions.createWorkflowDispatch({
-            repo: 'https://github.com/HarshDhingraDevops/testrepo',
-            workflow_id: 'main.yml',
-            ref: 'main'
-          })
+    run: |
+    curl -XPOST -u "${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/HarshDhingraDevops/testrepo/dispatches --data '{"event_type": "main.yml"}'
+
