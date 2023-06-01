@@ -5,14 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test
-      uses: actions/github-script@v6
-      with:
-          github-token: ${{ secrets.PAT_TOKEN }}
-          script: |
-            const result = await github.rest.actions.createWorkflowDispatch({
-              owner: 'HarshDhingraDevops',
-              repo: 'testrepo',
-              workflow_id: 'main.yml',
-              ref: 'main'
-            })
-            console.log(result)
+      run: |
+          curl -X POST 'https://github.com/HarshDhingraDevops/testrepo/actions/workflows/main.yml/dispatches' \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -d '{"ref":"main"}'
