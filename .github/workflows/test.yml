@@ -17,8 +17,7 @@ jobs:
         github-token: ${{ secrets.PAT_TOKEN }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: 'docker-sstc',
-            repo: 'docker-notify',
+            repo: 'https://github.com/HarshDhingraDevops/testrepo',
             workflow_id: 'main.yml',
-            ref: 'master'
+            ref: 'main'
           })
