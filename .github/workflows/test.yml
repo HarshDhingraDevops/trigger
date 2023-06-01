@@ -6,7 +6,7 @@ jobs:
     steps:
     - name: Deploy
       run: |
-        curl -X POST 'https://github.dev.us.corp/UKG/suiteserviceability-accelerate-demo/actions/workflows/suiteserviceability-accelerate-demo-main-workflow.yml/dispatches' \
+        curl -X POST 'https://github.com/HarshDhingraDevops/testrepo/actions/workflows/main.yml/dispatches' \
         -H 'Accept: application/vnd.github.everest-preview+json' \
         -H 'Authorization: Bearer ${{ secrets.PAT_TOKEN }}' \ \
         -d '{"ref":"main"}'
