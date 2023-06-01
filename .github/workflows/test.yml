@@ -12,7 +12,7 @@ jobs:
     #       -H "Content-Type: application/json" \
     #       https://api.github.com/repos/docker-sstc/docker-notify/actions/workflows/main.yml/dispatches \
     #       --data '{"ref": "master"}'
-    - uses: actions/github-script@v6
+    - uses: actions/github-script@v5
       with:
         github-token: ${{ secrets.PAT_TOKEN }}
         script: |
