@@ -1,9 +1,12 @@
 
-on: repository_dispatch
+on: [push]
 jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-    run: |
-    curl -XPOST -u "${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/HarshDhingraDevops/testrepo/dispatches --data '{"event_type": "main.yml"}'
-
+    - run: |
+        curl -u "${{secrets.PAT_TOKEN}}" \
+         -H "Accept: application/vnd.github.everest-preview+json" \
+         -H "Content-Type: application/json" \
+         https://api.github.com/repos/HarshDhingraDevops/testrepo/actions/workflows/main.yml/dispatches \
+         --data '{"ref": "main"}'
