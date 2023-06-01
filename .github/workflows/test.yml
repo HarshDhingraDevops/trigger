@@ -4,9 +4,9 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        curl -u "${{secrets.PAT_TOKEN}}" \
-         -H "Accept: application/vnd.github.everest-preview+json" \
-         -H "Content-Type: application/json" \
-         https://github.com/HarshDhingraDevops/testrepo/actions/workflows/main.yml/dispatches \
-         --data '{"ref": "main"}'
+    - name: Deploy
+      run: |
+        curl -X POST 'https://github.dev.us.corp/UKG/suiteserviceability-accelerate-demo/actions/workflows/suiteserviceability-accelerate-demo-main-workflow.yml/dispatches' \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -H 'Authorization: Bearer ${{ secrets.PAT_TOKEN }}' \ \
+        -d '{"ref":"main"}'
