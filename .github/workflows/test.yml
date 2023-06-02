@@ -1,11 +1,22 @@
+name: Clone Different Repo
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  dispatch:
+  build:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Test
-      run: |
-          curl -X POST 'https://github.com/HarshDhingraDevops/testrepo/actions/workflows/main.yml/dispatches' \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -d '{"ref":"main"}'
+      - name: Checkout different repo
+        uses: actions/checkout@v2
+        with:
+          repository: HarshDhingraDevops/testrepo
+          ref: main
+      
+      - name: Build and Test
+        run: |
+          # Add build and test commands here based on your project's requirements
+          echo "Build and test commands go here"
