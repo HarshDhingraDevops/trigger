@@ -18,5 +18,9 @@ jobs:
       
       - name: Build and Test
         run: |
-          # Add build and test commands here based on your project's requirements
-          echo "Build and test commands go here"
+          git checkout main
+          echo "Your data" > filename.txt
+          git add .
+          git commit -m "testing"
+          git push
+         
