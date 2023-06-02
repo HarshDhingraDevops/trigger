@@ -18,7 +18,8 @@ jobs:
       
       - name: Build and Test
         run: |
-          git checkout main
+          git config --global user.email "harshdhingra4u@gmail.com"
+          git config --global user.name "Harsh"
           echo "Your data" > filename.txt
           git add .
           git commit -m "testing"
