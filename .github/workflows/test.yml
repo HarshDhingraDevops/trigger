@@ -16,9 +16,4 @@ jobs:
           repository: HarshDhingraDevops/testrepo
       
       - name: Build and Test
-        run: |
-          echo "Your data" > filename.txt
-          git add .
-          git commit -m "testing"
-          git push
-         
+        run: ls -ltr
